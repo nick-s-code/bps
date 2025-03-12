@@ -3,266 +3,816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brass Plumbing Solutions LLC</title>
+    <title>PlumbPro | Professional Plumbing & Repair Services</title>
     <style>
-        :root {
-            --brass-color: #b5a642;
-            --brass-dark: #8c7a14;
-            --brass-light: #d8cb84;
-            --background: #f5f3e7;
-            --text-color: #333333;
-        }
-        
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background-color: var(--background);
-            color: var(--text-color);
+            font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
+            color: #333;
         }
         
-        header {
-            background-color: var(--brass-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-style: italic;
-        }
-        
-        nav {
-            background-color: var(--brass-dark);
-            display: flex;
-            justify-content: center;
-        }
-        
-        nav a {
-            color: white;
+        a {
             text-decoration: none;
-            padding: 1rem 2rem;
-            display: inline-block;
-            transition: background-color 0.3s;
+            color: inherit;
         }
         
-        nav a:hover {
-            background-color: var(--brass-color);
+        img {
+            max-width: 100%;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 15px;
         }
         
-        section {
-            margin-bottom: 3rem;
-            padding: 2rem;
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #f7941d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e07e0a;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #1e3056;
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f7941d;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background-color: #1e3056;
+            padding: 10px 0;
+            color: white;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-contact a {
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        
+        .header-contact i {
+            margin-right: 5px;
+            color: #f7941d;
+        }
+        
+        .header-social a {
+            margin-left: 15px;
+            font-size: 14px;
+        }
+        
+        .main-header {
+            padding: 20px 0;
             background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        h2 {
-            color: var(--brass-dark);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--brass-light);
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3056;
+        }
+        
+        .logo span {
+            color: #f7941d;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            font-weight: 600;
+            color: #1e3056;
+            text-transform: uppercase;
+            font-size: 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #f7941d;
+        }
+        
+        .nav-menu a.active {
+            color: #f7941d;
+        }
+        
+        .nav-menu a.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #f7941d;
+            bottom: -5px;
+            left: 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 48, 86, 0.8), rgba(30, 48, 86, 0.8)), url('/api/placeholder/1200/600') no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            margin-top: 30px;
+        }
+        
+        .hero-btns .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .hero-btns .btn-secondary:hover {
+            background-color: white;
+            color: #1e3056;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f9f9f9;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        .service-card {
-            border: 1px solid #e0e0e0;
+        .service-box {
+            background-color: white;
+            padding: 30px;
             border-radius: 5px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
         }
         
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .service-box:hover {
+            transform: translateY(-10px);
         }
         
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--brass-color);
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            color: #f7941d;
+            font-size: 50px;
         }
         
-        .contact-info {
-            background-color: var(--brass-light);
-            padding: 2rem;
-            border-radius: 5px;
-            margin-bottom: 2rem;
+        .service-box h3 {
+            margin-bottom: 15px;
+            color: #1e3056;
         }
         
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .service-box p {
+            color: #666;
+            margin-bottom: 15px;
         }
         
-        .contact-form button {
-            background-color: var(--brass-color);
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: #1e3056;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .about-features {
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f7941d;
             color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            background-color: #1e3056;
+            color: white;
+        }
+        
+        .why-us .section-title h2 {
+            color: white;
+        }
+        
+        .why-us .section-title p {
+            color: #ccc;
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .why-us-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.05);
             transition: background-color 0.3s;
         }
         
-        .contact-form button:hover {
-            background-color: var(--brass-dark);
+        .why-us-box:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
-        footer {
-            background-color: var(--brass-dark);
-            color: white;
+        .why-us-icon {
+            font-size: 40px;
+            color: #f7941d;
+            margin-bottom: 20px;
+        }
+        
+        .why-us-box h3 {
+            margin-bottom: 15px;
+        }
+        
+        .why-us-box p {
+            color: #ccc;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f9f9f9;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .testimonial-client {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .client-info h4 {
+            color: #1e3056;
+        }
+        
+        .client-info p {
+            color: #f7941d;
+            font-size: 14px;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(rgba(30, 48, 86, 0.9), rgba(30, 48, 86, 0.9)), url('/api/placeholder/1200/400') no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
             text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #ccc;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #162440;
+            color: #ccc;
+            padding-top: 80px;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-widget h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-widget h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #f7941d;
+        }
+        
+        .footer-contact-info div {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact-info i {
+            color: #f7941d;
+            margin-right: 10px;
+            margin-top: 4px;
         }
         
         .footer-links {
-            margin-top: 1rem;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
         }
         
         .footer-links a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
+            position: relative;
+            padding-left: 20px;
+            transition: color 0.3s;
         }
         
         .footer-links a:hover {
-            text-decoration: underline;
+            color: #f7941d;
+        }
+        
+        .footer-links a:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #f7941d;
+        }
+        
+        .footer-bottom {
+            background-color: #111c30;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                grid-row: 1;
+                margin-bottom: 30px;
+            }
         }
         
         @media (max-width: 768px) {
-            nav {
+            .header-top-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-social {
+                margin-top: 10px;
+            }
+            
+            .header-content {
                 flex-direction: column;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-menu li {
+                margin: 5px 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Brass Plumbing Solutions LLC</div>
-        <div class="tagline">Built To Last</div>
-    </header>
-    
-    <nav>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
-    </nav>
-    
-    <div class="container">
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Welcome to Brass Plumbing Solutions LLC, your trusted partner for all plumbing needs. With over 20 years of combined experience, our team of licensed professionals is dedicated to providing exceptional plumbing services to residential and commercial clients.</p>
-            <p>Founded in 2010, we've built our reputation on reliability, quality workmanship, and customer satisfaction. Our technicians are fully licensed, insured, and trained to handle everything from minor repairs to major installations.</p>
-            <p>At Brass Plumbing Solutions, we believe in transparency, fair pricing, and lasting solutions. We don't just fix the symptoms – we identify and resolve the root cause of your plumbing issues to prevent future problems.</p>
-            <p>Whether you're dealing with a leaky faucet, need a complete bathroom renovation, or require emergency plumbing services, our team is ready to exceed your expectations with prompt, professional service.</p>
-        </section>
-        
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🚿</div>
-                    <h3>Residential Plumbing</h3>
-                    <p>Complete home plumbing services including repairs, installations, and maintenance for kitchens, bathrooms, water heaters, and more.</p>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="header-contact">
+                    <a href="tel:+1234567890"><i>📞</i> (123) 456-7890</a>
+                    <a href="mailto:info@plumbpro.com"><i>✉️</i> info@plumbpro.com</a>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Commercial Plumbing</h3>
-                    <p>Specialized solutions for businesses, restaurants, retail spaces, and commercial properties with minimal disruption to your operations.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">⚠️</div>
-                    <h3>Emergency Services</h3>
-                    <p>24/7 emergency response for burst pipes, major leaks, sewer backups, and other urgent plumbing situations.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Repairs & Maintenance</h3>
-                    <p>Fixing leaks, clogs, broken fixtures, and offering preventative maintenance to extend the life of your plumbing systems.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Installations & Remodels</h3>
-                    <p>Expert installation of fixtures, appliances, and complete plumbing systems for new construction or renovation projects.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🚽</div>
-                    <h3>Drain & Sewer Services</h3>
-                    <p>Professional cleaning, inspection, repair, and replacement of drain and sewer lines to keep your system flowing properly.</p>
+                <div class="header-social">
+                    <a href="#">FB</a>
+                    <a href="#">TW</a>
+                    <a href="#">IG</a>
+                    <a href="#">LI</a>
                 </div>
             </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <p><strong>Phone:</strong> (908)-872-0483</p>
-                <p><strong>Email:</strong> brassplumbingsolutions@gmail.com</p>
-                <p><strong>Hours:</strong> Monday-Friday: 8AM-6PM, Saturday: 9AM-2PM, 24/7 Emergency Service</p>
-                <!-- <p><strong>Address:</strong> 1234 Plumbing Lane, Pipetown, ST 12345</p> -->
-            </div>
-            
-            <!-- <div class="contact-form">
-                <h3>Send Us a Message</h3>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="tel" placeholder="Your Phone">
-                    <textarea rows="5" placeholder="How can we help you?" required></textarea>
-                    <button type="submit">Submit Request</button>
-                </form>
-            </div> -->
-        </section>
+        </div>
     </div>
     
-    <footer>
-        <p>&copy; 2025 Brass Plumbing Solutions LLC. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-            <a href="#">Privacy Policy</a>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    Plumb<span>Pro</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Plumbing & Repair Services</h1>
+                <p>With over 20 years of experience, we provide quality plumbing services for residential and commercial customers. Available 24/7 for all your emergency plumbing needs.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn">Our Services</a>
+                    <a href="#" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of plumbing services to meet all your residential and commercial needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-icon">🔧</div>
+                    <h3>Drain Cleaning</h3>
+                    <p>We use advanced techniques to clear clogged drains quickly and efficiently, restoring proper flow.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">🚿</div>
+                    <h3>Water Heater Repair</h3>
+                    <p>Our experts can repair or replace your water heater to ensure you have reliable hot water.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">🚽</div>
+                    <h3>Toilet Repair</h3>
+                    <p>From running toilets to complete replacements, we handle all your toilet repair needs.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Pipe Repair</h3>
+                    <p>We fix leaky pipes, replace damaged sections, and ensure your plumbing system functions properly.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">🛁</div>
+                    <h3>Bathroom Remodeling</h3>
+                    <p>Transform your bathroom with our professional remodeling services and quality fixtures.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">🚨</div>
+                    <h3>Emergency Services</h3>
+                    <p>Available 24/7 for all your emergency plumbing needs with quick response times.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about section-padding">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/500/400" alt="About PlumbPro">
+                </div>
+                <div class="about-text">
+                    <h2>We've Been Fixing Plumbing Issues Since 2003</h2>
+                    <p>PlumbPro is a family-owned and operated plumbing company with over 20 years of experience serving residential and commercial customers. Our team of licensed and insured plumbers is dedicated to providing high-quality service at fair prices.</p>
+                    <p>We pride ourselves on our professionalism, punctuality, and cleanliness. When you choose PlumbPro, you can expect honest recommendations, upfront pricing, and a job done right the first time.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>Fully Licensed & Insured</h4>
+                                <p>All our plumbers are professionally certified and insured.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>24/7 Emergency Service</h4>
+                                <p>We're available day and night for all your plumbing emergencies.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>Satisfaction Guaranteed</h4>
+                                <p>We're not satisfied until you're completely happy with our work.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section class="why-us section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>There are many reasons to choose PlumbPro for all your plumbing needs</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-box">
+                    <div class="why-us-icon">🏆</div>
+                    <h3>Experienced Team</h3>
+                    <p>Our plumbers have years of experience and ongoing training in the latest techniques.</p>
+                </div>
+                <div class="why-us-box">
+                    <div class="why-us-icon">💰</div>
+                    <h3>Fair Pricing</h3>
+                    <p>We provide honest, upfront pricing with no hidden fees or surprise costs.</p>
+                </div>
+                <div class="why-us-box">
+                    <div class="why-us-icon">⏰</div>
+                    <h3>Prompt Service</h3>
+                    <p>We respect your time and arrive within the scheduled appointment window.</p>
+                </div>
+                <div class="why-us-box">
+                    <div class="why-us-icon">👍</div>
+                    <h3>Quality Workmanship</h3>
+                    <p>We use quality materials and follow industry best practices for lasting results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it, hear what our satisfied customers have to say</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-box">
+                    <div class="testimonial-text">
+                        "PlumbPro responded quickly to my emergency call when my water heater broke. They were professional, efficient, and had everything fixed within hours. Highly recommend their services!"
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="/api/placeholder/60/60" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>John Smith</h4>
+                            <p>Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-text">
+                        "As a property manager, I need reliable contractors. PlumbPro has been servicing our buildings for years with consistent quality and fair pricing. They're always my first call for plumbing issues."
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="/api/placeholder/60/60" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Commercial Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-text">
+                        "We hired PlumbPro for our bathroom remodel and couldn't be happier with the results. They guided us through the entire process and delivered exceptional craftsmanship. Our new bathroom is beautiful!"
+                    </div>
+                    <div class="testimonial-client">
+                        <div class="client-img">
+                            <img src="/api/placeholder/60/60" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>David Miller</h4>
+                            <p>Remodeling Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Professional Plumbing Service?</h2>
+            <p>Whether you have an emergency plumbing situation or planning a bathroom remodel, our team is ready to help.</p>
+            <a href="#" class="btn">Get Free Estimate</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-widget">
+                    <h3>About PlumbPro</h3>
+                    <p>PlumbPro is a family-owned and operated plumbing company serving residential and commercial customers with quality, reliable service since 2003.</p>
+                </div>
+                <div class="footer-widget">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact-info">
+                        <div>
+                            <i>📍</i>
+                            <p>123 Plumbing Street<br>Anytown, ST 12345</p>
+                        </div>
+                        <div>
+                            <i>📞</i>
+                            <p>(123) 456-7890</p>
+                        </div>
+                        <div>
+                            <i>✉️</i>
+                            <p>info@plumbpro.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Drain Cleaning</a></li>
+                        <li><a href="#">Water Heater Repair</a></li>
+                        <li><a href="#">Toilet Repair</a></li>
+                        <li><a href="#">Pipe Repair</a></li>
+                        <li><a href="#">Bathroom Remodeling</a></li>
+                        <li><a href="#">Emergency Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h3>Business Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday: 8:00 AM - 6:00 PM</li>
+                        <li>Tuesday: 8:00 AM - 6:00 PM</li>
+                        <li>Wednesday: 8:00 AM - 6:00 PM</li>
+                        <li>Thursday: 8:00 AM - 6:00 PM</li>
+                        <li>Friday: 8:00 AM - 6:00 PM</li>
+                        <li>Saturday: 9:00 AM - 4:00 PM</li>
+                        <li>Sunday: Closed (Emergency Only)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 PlumbPro - Professional Plumbing & Repair Services. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 </body>
