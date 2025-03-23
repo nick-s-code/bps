@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Brass Plumbing Solutions</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="bar">Site Status: Under Construction</div>
+</body>
+</head>
+
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="header-contact">
+                    <a name="home"></a>
+                    <a href="tel:+19088720483"><i>📞</i> (908) 872-0483</a>
+                    <a href="mailto:brassplumbingsolutions@gmail.com"><i>✉️</i> brassplumbingsolutions@gmail.com</a>
+                </div>
+                <!-- Uncomment when there is social media -->
+                <!-- <div class="header-social">
+                    <a href="#">FB</a>
+                    <a href="#">TW</a>
+                    <a href="#">IG</a>
+                    <a href="#">LI</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>Brass</span> Plumbing Solutions
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <!-- <li><a href="#">Projects</a></li> -->
+                    <!-- <li><a href="#">Testimonials</a></li> -->
+                    <li><a href="#" class="active">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 3%;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>Have a plumbing problem or need a quote? Get in touch with our team today and we'll get back to you
+                    as soon as possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Fill out the form below to contact our team. We'll respond promptly to your inquiry.</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <div id="formStatus" class="form-status"></div>
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName" class="required-field">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="required-field">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="required-field">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="required-field">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group form-full">
+                                <label for="address">Property Address</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceType" class="required-field">Service Type</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="residential">Residential Plumbing</option>
+                                    <option value="commercial">Commercial Plumbing</option>
+                                    <option value="emergency">Emergency Services</option>
+                                    <option value="repairs">Repairs & Maintenance</option>
+                                    <option value="installations">Installations & Remodels</option>
+                                    <option value="drain">Drain & Sewer Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="urgency">How Urgent Is Your Request?</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="emergency">Emergency - Need help now</option>
+                                    <option value="soon" selected>Need service within 24-48 hours</option>
+                                    <option value="scheduled">Planning ahead - Need in the next week</option>
+                                    <option value="quote">Just requesting a quote</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-full">
+                                <label for="message" class="required-field">Describe Your Plumbing Issue</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <div class="form-group form-full">
+                                <label for="howHeard">How Did You Hear About Us?</label>
+                                <select id="howHeard" name="howHeard">
+                                    <option value="" selected>Select an option</option>
+                                    <option value="google">Google Search</option>
+                                    <option value="referral">Referral from Friend/Family</option>
+                                    <option value="social">Social Media</option>
+                                    <option value="returning">I'm a Returning Customer</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-full">
+                                <button type="submit" id="submitButton" class="btn" style="width: 100%;">
+                                    <span id="spinner" class="spinner"></span>
+                                    Submit Request
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info-item">
+                        <i>📞</i>
+                        <div>
+                            <p><strong>Phone</strong></p>
+                            <p>(908) 872-0483</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>✉️</i>
+                        <div>
+                            <p><strong>Email</strong></p>
+                            <p>brassplumbingsolutions@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>⏰</i>
+                        <div>
+                            <p><strong>Business Hours</strong></p>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Saturday - Sunday: Closed (Emergency Services Only)</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <h3>Emergency Service</h3>
+                        <p>For after-hours emergency service, please call our main number and follow the prompts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-widget">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact-info">
+                        <div>
+                            <i>📞</i>
+                            <p>(908) 872-0483</p>
+                        </div>
+                        <div>
+                            <i>✉️</i>
+                            <p>brassplumbingsolutions@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h3>Business Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 9:00 AM - 5:00 PM</li>
+                        <li>Saturday - Sunday: Closed (Emergency Services Only)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; Brass Plumbing Solutions LLC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            const submitButton = document.getElementById('submitButton');
+            const spinner = document.getElementById('spinner');
+            const formStatus = document.getElementById('formStatus');
+
+            // Replace this URL with your actual AWS Lambda function URL
+            const lambdaUrl = 'https://okfajbuo7llr2toejgleq37jr40uafip.lambda-url.us-east-1.on.aws';
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Show spinner and disable submit button
+                spinner.style.display = 'inline-block';
+                submitButton.disabled = true;
+                formStatus.className = 'form-status';
+                formStatus.style.display = 'none';
+
+                // Collect form data
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    serviceType: document.getElementById('serviceType').value,
+                    urgency: document.getElementById('urgency').value,
+                    message: document.getElementById('message').value,
+                    howHeard: document.getElementById('howHeard').value
+                };
+
+                // Send data to Lambda function
+                fetch(lambdaUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Show success message
+                        formStatus.textContent = 'Thank you! Your request has been submitted successfully. We will contact you shortly.';
+                        formStatus.className = 'form-status success';
+                        form.reset();
+                    })
+                    .catch(error => {
+                        // Show error message
+                        formStatus.textContent = 'Sorry, there was a problem submitting your request. Please try again or call us directly.';
+                        formStatus.className = 'form-status error';
+                        console.error('Error:', error);
+                    })
+                    .finally(() => {
+                        // Hide spinner and re-enable submit button
+                        spinner.style.display = 'none';
+                        submitButton.disabled = false;
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
