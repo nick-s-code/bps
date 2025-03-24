@@ -229,7 +229,8 @@
                 spinner.style.display = 'inline-block';
                 submitButton.disabled = true;
                 formStatus.className = 'form-status';
-                formStatus.style.display = 'none';
+                // Remove this line that hides the status message
+                // formStatus.style.display = 'none';
 
                 // Collect form data
                 const formData = {
@@ -275,6 +276,8 @@
                         // Hide spinner and re-enable submit button
                         spinner.style.display = 'none';
                         submitButton.disabled = false;
+                        // Ensure the status message is visible
+                        formStatus.style.display = 'block';
                     });
             });
         });
