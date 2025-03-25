@@ -225,20 +225,12 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-<<<<<<< Updated upstream
-                // Show spinner and disable submit button
-                spinner.style.display = 'inline-block';
-                submitButton.disabled = true;
-                formStatus.className = 'form-status';
-                formStatus.style.display = 'none';
-=======
         // Show spinner and disable submit button
         spinner.style.display = 'inline-block';
         submitButton.disabled = true;
         formStatus.className = 'form-status';
         // Remove this line that hides the status message
         // formStatus.style.display = 'none';
->>>>>>> Stashed changes
 
         // Collect form data
         const formData = {
@@ -253,40 +245,6 @@ document.addEventListener('DOMContentLoaded', function () {
             howHeard: document.getElementById('howHeard').value
         };
 
-<<<<<<< Updated upstream
-                // Send data to Lambda function
-                fetch(lambdaUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    // Handle the response data from the Lambda function
-                    .then(data => {
-                        // Show success message
-                        formStatus.textContent = 'Thank you! Your request has been submitted successfully. We will contact you shortly.';
-                        formStatus.className = 'form-status success';
-                        form.reset();
-                    })
-                    .catch(error => {
-                        // Show error message
-                        formStatus.textContent = 'Sorry, there was a problem submitting your request. Please try again or call us directly.';
-                        formStatus.className = 'form-status error';
-                        console.error('Error:', error);
-                    })
-                    .finally(() => {
-                        // Hide spinner and re-enable submit button
-                        spinner.style.display = 'none';
-                        submitButton.disabled = false;
-                    });
-=======
         // Send data to Lambda function
         fetch(lambdaUrl, {
             method: 'POST',
@@ -320,7 +278,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitButton.disabled = false;
                 // Ensure the status message is visible
                 formStatus.style.display = 'block';
->>>>>>> Stashed changes
             });
     });
 });
