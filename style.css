@@ -35,6 +35,7 @@ img {
     font-weight: 700;
     text-transform: uppercase;
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -590,8 +591,15 @@ img {
     margin-left: 4px;
 }
 
-/* Responsive Styles */
-@media (max-width: 991px) {
+
+@media (max-width: 768px) {
+    .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        font-size: 18px;
+    }
     .about-content {
         grid-template-columns: 1fr;
     }
@@ -600,9 +608,10 @@ img {
         grid-row: 1;
         margin-bottom: 30px;
     }
-}
-
-@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        text-align: center;
+    }
     .header-top-content {
         flex-direction: column;
         text-align: center;
@@ -632,4 +641,43 @@ img {
     .hero-content h1 {
         font-size: 36px;
     }
+    .form-grid {
+        display: block;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-full {
+        grid-column: auto;
+    }
+    .contact-wrapper {
+        display: block;
+    }
+
+    .contact-form, .contact-info {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .form-grid {
+        display: block;
+    }
+
+    .form-group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+    }
+
+    .form-full {
+        grid-column: auto;
+    }
 }
+
