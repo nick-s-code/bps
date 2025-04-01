@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Brass Plumbing Solutions</title>
     <link rel="stylesheet" href="style.css">
-
+    <!-- Add the Google reCAPTCHA v3 script -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Leq2gYrAAAAAI27i6cKt72Ii8qjM97hT74nGd0d"></script>
+    <style>
+        /* Example to reposition or hide the reCAPTCHA badge */
+        .grecaptcha-badge {
+            visibility: show; /* Hides the badge */
+        }
+    </style>
 </head>
 
 <body>
@@ -229,56 +236,60 @@
                 spinner.style.display = 'inline-block';
                 submitButton.disabled = true;
                 formStatus.className = 'form-status';
-                // Remove this line that hides the status message
-                // formStatus.style.display = 'none';
 
-                // Collect form data
-                const formData = {
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    address: document.getElementById('address').value,
-                    serviceType: document.getElementById('serviceType').value,
-                    urgency: document.getElementById('urgency').value,
-                    message: document.getElementById('message').value,
-                    howHeard: document.getElementById('howHeard').value
-                };
+                // Execute reCAPTCHA
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('6LdJ3gYrAAAAAPn8GcqiXFmns2RSMGm6QDNxLLNU', { action: 'submit' }).then(function (token) {
+                        // Collect form data
+                        const formData = {
+                            firstName: document.getElementById('firstName').value,
+                            lastName: document.getElementById('lastName').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            address: document.getElementById('address').value,
+                            serviceType: document.getElementById('serviceType').value,
+                            urgency: document.getElementById('urgency').value,
+                            message: document.getElementById('message').value,
+                            howHeard: document.getElementById('howHeard').value,
+                            recaptchaToken: token // Add the reCAPTCHA token
+                        };
 
-                // Send data to Lambda function
-                fetch(lambdaUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    // Handle the response data from the Lambda function
-                    .then(data => {
-                        // Show success message
-                        formStatus.textContent = 'Thank you! Your request has been submitted successfully. We will contact you shortly.';
-                        formStatus.className = 'form-status success';
-                        form.reset();
-                    })
-                    .catch(error => {
-                        // Show error message
-                        formStatus.textContent = 'Sorry, there was a problem submitting your request. Please try again or call us directly.';
-                        formStatus.className = 'form-status error';
-                        console.error('Error:', error);
-                    })
-                    .finally(() => {
-                        // Hide spinner and re-enable submit button
-                        spinner.style.display = 'none';
-                        submitButton.disabled = false;
-                        // Ensure the status message is visible
-                        formStatus.style.display = 'block';
+                        // Send data to Lambda function
+                        fetch(lambdaUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
+                            // Handle the response data from the Lambda function
+                            .then(data => {
+                                // Show success message
+                                formStatus.textContent = 'Thank you! Your request has been submitted successfully. We will contact you shortly.';
+                                formStatus.className = 'form-status success';
+                                form.reset();
+                            })
+                            .catch(error => {
+                                // Show error message
+                                formStatus.textContent = 'Sorry, there was a problem submitting your request. Please try again or call us directly.';
+                                formStatus.className = 'form-status error';
+                                console.error('Error:', error);
+                            })
+                            .finally(() => {
+                                // Hide spinner and re-enable submit button
+                                spinner.style.display = 'none';
+                                submitButton.disabled = false;
+                                // Ensure the status message is visible
+                                formStatus.style.display = 'block';
+                            });
                     });
+                });
             });
         });
     </script>
