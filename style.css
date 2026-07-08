@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
 }
 
+@media (min-width: 769px) {
+    html {
+        scroll-padding-top: 110px;
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -146,6 +152,13 @@ img {
 .nav-menu {
     display: flex;
     list-style: none;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    padding: 0;
 }
 
 .nav-menu li {
@@ -714,6 +727,158 @@ img {
         padding: 15px;
         font-size: 18px;
     }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+        line-height: 1.1;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .header-top-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        padding: 0 8px;
+    }
+
+    .header-top-content .header-contact a {
+        display: inline-block;
+        margin: 6px 0;
+    }
+
+    .main-header {
+        position: static;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 8px 24px rgba(30, 48, 86, 0.07);
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 140px;
+        height: 48px;
+        padding: 0 14px;
+        border: 1px solid rgba(30, 48, 86, 0.14);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 12px 28px rgba(30, 48, 86, 0.08);
+        cursor: pointer;
+        transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .mobile-menu-toggle:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-1px);
+        box-shadow: 0 14px 32px rgba(30, 48, 86, 0.12);
+    }
+
+    .mobile-menu-toggle .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .mobile-menu-toggle .menu-icon span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: #1e3056;
+        border-radius: 999px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-label {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #1e3056;
+        white-space: nowrap;
+    }
+
+    .main-header.nav-open .mobile-menu-toggle span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .main-header.nav-open .mobile-menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .main-header.nav-open .mobile-menu-toggle span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .main-header {
+        position: relative;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 18px 20px 20px;
+        gap: 12px;
+        flex-direction: column;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 24px 50px rgba(30, 48, 86, 0.12);
+        z-index: 999;
+    }
+
+    .main-header.nav-open .nav-menu {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 8px 0;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 12px 0;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
     }
@@ -722,55 +887,25 @@ img {
         grid-row: 1;
         margin-bottom: 30px;
     }
-    .nav-menu {
-        flex-direction: column;
-        text-align: center;
-    }
-    .header-top-content {
-        flex-direction: column;
-        text-align: center;
+
+    .services-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
     }
 
-    .header-social {
-        margin-top: 10px;
-    }
-
-    .header-content {
-        flex-direction: column;
-    }
-
-    .logo {
-        margin-bottom: 20px;
-    }
-
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-menu li {
-        margin: 5px 10px;
-    }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
-    .form-grid {
-        display: block;
-    }
-
-    .form-group {
+    .service-box,
+    .testimonial-box {
         width: 100%;
+        max-width: 100%;
+        padding: 28px 22px;
     }
 
-    .form-full {
-        grid-column: auto;
-    }
     .contact-wrapper {
         display: block;
     }
 
-    .contact-form, .contact-info {
+    .contact-form,
+    .contact-info {
         width: 100%;
         margin-bottom: 20px;
     }
@@ -781,7 +916,7 @@ img {
 
     .form-group {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 18px;
     }
 
     .form-group input,
@@ -790,7 +925,50 @@ img {
         width: 100%;
     }
 
-    .form-full {
-        grid-column: auto;
+    .contact-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-info-item div {
+        margin-top: 10px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-widget {
+        text-align: center;
+        padding: 0 12px;
+    }
+
+    .footer-contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-contact-info div {
+        width: 100%;
+        max-width: 360px;
+        justify-content: center;
+        margin: 0 auto 16px;
+    }
+
+    .footer-contact-info p,
+    .footer-links li {
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    .footer-links {
+        padding: 0;
+        margin: 0 auto;
+        max-width: 360px;
+    }
+
+    .footer-links li {
+        margin-bottom: 14px;
     }
 }

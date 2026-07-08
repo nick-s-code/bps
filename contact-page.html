@@ -45,6 +45,14 @@
                 <div class="logo">
                     <span>Brass</span> Plumbing Solutions
                 </div>
+                <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu">
+                    <span class="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="menu-label">Navigation</span>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
@@ -61,7 +69,6 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge">24/7 Emergency Plumbing</span>
                 <h1>Contact Us</h1>
                 <p>Have a plumbing problem or need a quote? Get in touch with our team today and we'll get back to you
                     as soon as possible.</p>
@@ -181,7 +188,7 @@
                     </div>
                     <div style="margin-top: 30px;">
                         <h3>Emergency Service</h3>
-                        <p>For after-hours emergency service, please call our main number and follow the prompts.</p>
+                        <p>For after-hours emergency service, please call our main number.</p>
                     </div>
                 </div>
             </div>
@@ -292,6 +299,24 @@
                                 formStatus.style.display = 'block';
                             });
                     });
+                });
+            });
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const headerContent = document.querySelector('.header-content');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            const header = document.querySelector('.main-header');
+            if (menuToggle && header) {
+                menuToggle.addEventListener('click', function () {
+                    header.classList.toggle('nav-open');
+                });
+            }
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (!link.classList.contains('active')) {
+                        header.classList.remove('nav-open');
+                    }
                 });
             });
         });
