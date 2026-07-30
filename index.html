@@ -49,6 +49,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="gallery-page.html">Gallery</a></li>
                     <li><a href="contact-page.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -112,7 +113,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="logo.png" alt="About Brass Plumbing Solutions">
+                    <img src="images\logo.png" alt="About Brass Plumbing Solutions">
                 </div>
                 <div class="about-text">
                     <a name="about"></a>
@@ -201,7 +202,7 @@
                     </div>
                     <div class="testimonial-client">
                         <div class="client-img">
-                            <img src="user.svg" alt="Client">
+                            <img src="images/user.svg" alt="Client">
                         </div>
                         <div class="client-info">
                             <h4>Jahnavi B.</h4>
@@ -219,7 +220,7 @@
                     </div>
                     <div class="testimonial-client">
                         <div class="client-img">
-                            <img src="user.svg" alt="Client">
+                            <img src="/images/user.svg" alt="Client">
                         </div>
                         <div class="client-info">
                             <h4>Robert A.</h4>
@@ -234,7 +235,7 @@
                     </div>
                     <div class="testimonial-client">
                         <div class="client-img">
-                            <img src="user.svg" alt="Client">
+                            <img src="/images/user.svg" alt="Client">
                         </div>
                         <div class="client-info">
                             <h4>Rohit B.</h4>
@@ -322,6 +323,11 @@
                     const href = link.getAttribute('href');
 
                     if (href === 'contact-page.html' && currentPath.endsWith('/contact-page.html')) {
+                        link.classList.add('active');
+                        return;
+                    }
+
+                    if (href === 'gallery-page.html' && currentPath.endsWith('/gallery-page.html')) {
                         link.classList.add('active');
                         return;
                     }
