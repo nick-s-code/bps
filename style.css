@@ -245,30 +245,38 @@ img {
     color: rgba(255, 255, 255, 0.88);
 }
 
+.hero-btns .btn,
 .hero-btns .btn-secondary {
     background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.95);
-    color: white;
+    border: 2px solid #f3df99;
+    color: #f3df99;
+    box-shadow: none;
 }
 
+.hero-btns .btn:hover,
 .hero-btns .btn-secondary:hover {
-    background-color: white;
+    background-color: #f3df99;
+    color: #1e3056;
+    box-shadow: none;
+}
+
+.hero-btns .btn-tertiary {
+    background-color: transparent;
+    border-color: #f3df99;
+    color: #f3df99;
+}
+
+.hero-btns .btn-tertiary:hover {
+    background-color: #f3df99;
     color: #1e3056;
 }
 
 .hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
     margin-top: 30px;
-}
-
-.hero-btns .btn-secondary {
-    background-color: transparent;
-    border: 2px solid white;
-    margin-left: 15px;
-}
-
-.hero-btns .btn-secondary:hover {
-    background-color: white;
-    color: #1e3056;
 }
 
 /* Services Section */
