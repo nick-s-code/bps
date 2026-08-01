@@ -54,31 +54,55 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <img src="gallary/gal1.webp" alt="Plumbing installation project">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Backflow prevention</p>
+                        <img src="gallary/backflows.png" alt="Backflow prevention installation">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal2.webp" alt="Plumbing work in progress">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Commercial plumbing</p>
+                        <img src="gallary/commercial_sinks.png" alt="Commercial sink installation">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal3.webp" alt="Finished plumbing installation">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Outdoor heated showers</p>
+                        <img src="gallary/outdoor_heated_shower.png" alt="Outdoor heated shower setup">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal4.webp" alt="Plumbing repair work">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Showers and toilets</p>
+                        <img src="gallary/shower_and_toilets.webp" alt="Shower and toilet plumbing upgrade">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal5.webp" alt="Mechanical service project">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Waterproof lighting</p>
+                        <img src="gallary/shower_plubming_and_lighting_2.webp"
+                            alt="Bathroom plumbing and lighting detail">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal6.webp" alt="Commercial plumbing work">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Water heaters</p>
+                        <img src="gallary/water_heater.png" alt="Water heater installation">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal7.webp" alt="Residential plumbing service">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Water softener system</p>
+                        <img src="gallary/water_softeners.png" alt="Water softener system">
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallary/gal8.webp" alt="Completed plumbing project">
+                    <div class="gallery-card-content">
+                        <p class="gallery-caption">Outdoor gas and water</p>
+                        <img src="gallary/outdoor_gas_and_water.png" alt="Outdoor gas and water setup">
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <footer class="footer">
@@ -112,6 +136,33 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const header = document.querySelector('.main-header');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            if (menuToggle && header) {
+                menuToggle.addEventListener('click', function () {
+                    header.classList.toggle('nav-open');
+                });
+            }
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    const wasActive = link.classList.contains('active');
+                    navLinks.forEach(function (otherLink) {
+                        otherLink.classList.remove('active');
+                    });
+                    link.classList.add('active');
+
+                    if (!wasActive) {
+                        header.classList.remove('nav-open');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
