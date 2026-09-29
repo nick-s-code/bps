@@ -342,7 +342,7 @@
                             console.error('Error:', error);
                             showStatus(error.message || 'Sorry, there was a problem submitting your request. Please try again or call us directly.', 'error');
                         })
-                        .finally(function () {
+                        .then(function () {
                             spinner.style.display = 'none';
                             submitButton.disabled = false;
                         });
