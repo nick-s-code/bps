@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request plumbing or mechanical service from Brass Plumbing Solutions. Contact us for emergency, residential, or commercial plumbing support.">
+    <meta name="theme-color" content="#1e3056">
+    <meta property="og:title" content="Contact Us - Brass Plumbing Solutions">
+    <meta property="og:description" content="Request a quote or service appointment with Brass Plumbing Solutions.">
+    <meta property="og:type" content="website">
     <title>Contact Us - Brass Plumbing Solutions</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Add the Google reCAPTCHA v3 script -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdJ3gYrAAAAAPn8GcqiXFmns2RSMGm6QDNxLLNU"></script> -->
     <script src="https://www.google.com/recaptcha/api.js?render=6Leq2gYrAAAAAI27i6cKt72Ii8qjM97hT74nGd0d"></script>
     <style>
-        /* Example to reposition or hide the reCAPTCHA badge */
         .grecaptcha-badge {
-            visibility: visible; /* Hides the badge */
+            visibility: visible;
         }
     </style>
 </head>
@@ -234,73 +236,119 @@
             const submitButton = document.getElementById('submitButton');
             const spinner = document.getElementById('spinner');
             const formStatus = document.getElementById('formStatus');
+            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'serviceType', 'urgency', 'message'];
 
-            // const eUrl = 'aHR0cHM6Ly9hY254Nzdvc25oY3dhN2V3M3FvaGdzNXYyZTBsbXpudy5sYW1iZGEtdXJsLnVzLWVhc3QtMS5vbi5hd3Mv';
             const eUrl = 'aHR0cHM6Ly9va2ZhamJ1bzdsbHIydG9lamdsZXEzN2pyNDB1YWZpcC5sYW1iZGEtdXJsLnVzLWVhc3QtMS5vbi5hd3Mv';
             const lUrl = atob(eUrl);
+
+            function showStatus(message, type) {
+                formStatus.textContent = message;
+                formStatus.className = 'form-status ' + type;
+                formStatus.style.display = 'block';
+            }
+
+            function validateFormFields() {
+                const missingFields = [];
+
+                requiredFields.forEach(function (fieldName) {
+                    const element = document.getElementById(fieldName);
+                    const value = element ? element.value.trim() : '';
+
+                    if (!value) {
+                        missingFields.push(fieldName);
+                    }
+                });
+
+                if (missingFields.length > 0) {
+                    const labels = missingFields
+                        .map(function (fieldName) {
+                            const label = document.querySelector('label[for="' + fieldName + '"]');
+                            return label ? label.textContent.replace('*', '').trim() : fieldName;
+                        })
+                        .join(', ');
+
+                    showStatus('Please complete the required fields: ' + labels + '.', 'error');
+                    return false;
+                }
+
+                return true;
+            }
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                // Show spinner and disable submit button
+                if (!validateFormFields()) {
+                    spinner.style.display = 'none';
+                    submitButton.disabled = false;
+                    return;
+                }
+
                 spinner.style.display = 'inline-block';
                 submitButton.disabled = true;
                 formStatus.className = 'form-status';
 
-                // Execute reCAPTCHA
-                grecaptcha.ready(function () {
-                    grecaptcha.execute('6Leq2gYrAAAAAI27i6cKt72Ii8qjM97hT74nGd0d', { action: 'submit' }).then(function (token) {
-                        // Collect form data
-                        const formData = {
-                            firstName: document.getElementById('firstName').value,
-                            lastName: document.getElementById('lastName').value,
-                            email: document.getElementById('email').value,
-                            phone: document.getElementById('phone').value,
-                            address: document.getElementById('address').value,
-                            serviceType: document.getElementById('serviceType').value,
-                            urgency: document.getElementById('urgency').value,
-                            message: document.getElementById('message').value,
-                            howHeard: document.getElementById('howHeard').value,
-                            recaptchaToken: token // Add the reCAPTCHA token
-                        };
+                if (typeof grecaptcha === 'undefined') {
+                    showStatus('Security verification is unavailable right now. Please call us directly at (908) 872-7393.', 'error');
+                    spinner.style.display = 'none';
+                    submitButton.disabled = false;
+                    return;
+                }
 
-                        // Send data to Lambda function
-                        fetch(lUrl, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(formData)
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('6Leq2gYrAAAAAI27i6cKt72Ii8qjM97hT74nGd0d', { action: 'submit' })
+                        .then(function (token) {
+                            const formData = {
+                                firstName: document.getElementById('firstName').value.trim(),
+                                lastName: document.getElementById('lastName').value.trim(),
+                                email: document.getElementById('email').value.trim(),
+                                phone: document.getElementById('phone').value.trim(),
+                                address: document.getElementById('address').value.trim(),
+                                serviceType: document.getElementById('serviceType').value,
+                                urgency: document.getElementById('urgency').value,
+                                message: document.getElementById('message').value.trim(),
+                                howHeard: document.getElementById('howHeard').value,
+                                recaptchaToken: token
+                            };
+
+                            return fetch(lUrl, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(formData)
+                            })
+                                .then(async function (response) {
+                                    const text = await response.text();
+                                    let parsedResponse = {};
+
+                                    try {
+                                        parsedResponse = text ? JSON.parse(text) : {};
+                                    } catch (error) {
+                                        parsedResponse = {};
+                                    }
+
+                                    if (!response.ok) {
+                                        throw new Error(parsedResponse.error || 'There was a problem submitting your request.');
+                                    }
+
+                                    return parsedResponse;
+                                });
                         })
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Network response was not ok');
-                                }
-                                return response.json();
-                            })
-                            // Handle the response data from the Lambda function
-                            .then(data => {
-                                // Show success message
-                                formStatus.textContent = 'Thank you! Your request has been submitted successfully. We will contact you shortly.';
-                                formStatus.className = 'form-status success';
-                                form.reset();
-                            })
-                            .catch(error => {
-                                // Show error message
-                                formStatus.textContent = 'Sorry, there was a problem submitting your request. Please try again or call us directly.';
-                                formStatus.className = 'form-status error';
-                                console.error('Error:', error);
-                            })
-                            .finally(() => {
-                                // Hide spinner and re-enable submit button
-                                spinner.style.display = 'none';
-                                submitButton.disabled = false;
-                                // Ensure the status message is visible
-                                formStatus.style.display = 'block';
-                            });
-                    });
+                        .then(function () {
+                            showStatus('Thank you! Your request has been submitted successfully. We will contact you shortly.', 'success');
+                            form.reset();
+                        })
+                        .catch(function (error) {
+                            console.error('Error:', error);
+                            showStatus(error.message || 'Sorry, there was a problem submitting your request. Please try again or call us directly.', 'error');
+                        })
+                        .finally(function () {
+                            spinner.style.display = 'none';
+                            submitButton.disabled = false;
+                        });
                 });
             });
+
             const menuToggle = document.querySelector('.mobile-menu-toggle');
             const headerContent = document.querySelector('.header-content');
             const navLinks = document.querySelectorAll('.nav-menu a');
