@@ -942,6 +942,15 @@ p + p {
     .nav-menu a {
         padding: 8px 9px;
     }
+
+    /* the email address is too long for a quarter-width column here */
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .footer-grid > :first-child {
+        grid-column: 1 / -1;
+    }
 }
 
 
