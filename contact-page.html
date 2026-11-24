@@ -9,7 +9,10 @@
     <meta property="og:title" content="Contact Us - Brass Plumbing Solutions">
     <meta property="og:description" content="Request a quote or service appointment with Brass Plumbing Solutions.">
     <meta property="og:type" content="website">
-    <title>Contact Us - Brass Plumbing Solutions</title>
+    <title>Request Service - Brass Plumbing Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
     <link rel="stylesheet" href="style.css">
     <script src="https://www.google.com/recaptcha/api.js?render=6Leq2gYrAAAAAI27i6cKt72Ii8qjM97hT74nGd0d"></script>
     <style>
@@ -20,103 +23,75 @@
 </head>
 
 <body>
-    <!-- Header Top -->
-    <div class="header-top">
-        <div class="container">
-            <div class="header-top-content">
-                <div class="header-contact">
-                    <a name="home"></a>
-                    <a href="tel:+19088727393"><i>📞</i> (908) 872-7393</a>
-                    <a href="mailto:brassplumbingsolutions@gmail.com"><i>✉️</i> brassplumbingsolutions@gmail.com</a>
-                </div>
-                <!-- Uncomment when there is social media -->
-                <!-- <div class="header-social">
-                    <a href="#">FB</a>
-                    <a href="#">TW</a>
-                    <a href="#">IG</a>
-                    <a href="#">LI</a>
-                </div> -->
-            </div>
-        </div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Main Header -->
-    <header class="main-header">
+    <header class="main-header on-dark">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <span>Brass</span> Plumbing Solutions
-                </div>
-                <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu">
-                    <span class="menu-icon">
+                <a class="brand" href="index.html">
+                    <img src="images/logo.png" alt="" width="48" height="48">
+                    <span>Brass Plumbing Solutions</span>
+                </a>
+                <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-icon" aria-hidden="true">
                         <span></span>
                         <span></span>
                         <span></span>
                     </span>
-                    <span class="menu-label">Navigation</span>
+                    <span class="menu-label">Menu</span>
                 </button>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
                     <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#services">Services</a></li> 
-                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#testimonials">Reviews</a></li>
                     <li><a href="gallery-page.html">Gallery</a></li>
-                    <li><a href="index.html#contact" class="active">Contact Us</a></li>
+                    <li><a href="contact-page.html" class="active" aria-current="page">Contact</a></li>
+                    <li class="nav-call"><a class="btn" href="tel:+19088727393">Call (908) 872-7393</a></li>
                 </ul>
+                <a class="btn header-call" href="tel:+19088727393">Call (908) 872-7393</a>
             </div>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Contact Us</h1>
-                <p>Have a plumbing problem or need a quote? Get in touch with our team today and we'll get back to you
-                    as soon as possible.</p>
+    <main id="main">
+        <section class="page-header on-dark">
+            <div class="container">
+                <h1>Request service</h1>
+                <p>Tell us what's going on and we'll follow up promptly to schedule. If water is actively leaking, call us instead.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Fill out the form below to contact our team. We'll respond promptly to your inquiry.</p>
-            </div>
-
-            <div class="contact-wrapper">
-                <div class="contact-form">
-                    <div class="form-card-header">
-                        <span>Request Service</span>
-                        <p>Fill out the details below and we’ll follow up promptly to schedule your plumbing service.</p>
-                    </div>
-                    <div id="formStatus" class="form-status"></div>
+        <section class="section">
+            <div class="container contact-layout">
+                <div class="form-panel">
+                    <h2>Service request</h2>
+                    <p>Fields marked * are required.</p>
+                    <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
                     <form id="contactForm" novalidate>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="firstName" class="required-field">First Name</label>
-                                <input type="text" id="firstName" name="firstName" required>
+                                <label for="firstName" class="required-field">First name</label>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
                             </div>
                             <div class="form-group">
-                                <label for="lastName" class="required-field">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" required>
+                                <label for="lastName" class="required-field">Last name</label>
+                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email" class="required-field">Email Address</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="email" class="required-field">Email address</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone" class="required-field">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <label for="phone" class="required-field">Phone number</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
                             </div>
                             <div class="form-group form-full">
-                                <label for="address">Property Address</label>
-                                <input type="text" id="address" name="address">
+                                <label for="address">Property address</label>
+                                <input type="text" id="address" name="address" autocomplete="street-address">
                             </div>
                             <div class="form-group">
-                                <label for="serviceType" class="required-field">Service Type</label>
+                                <label for="serviceType" class="required-field">Service type</label>
                                 <select id="serviceType" name="serviceType" required>
                                     <option value="" disabled selected>Select a service</option>
                                     <option value="residential">Residential Plumbing</option>
@@ -129,7 +104,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="urgency" class="required-field">Select Urgency</label>
+                                <label for="urgency" class="required-field">Urgency</label>
                                 <select id="urgency" name="urgency" required>
                                     <option value="" disabled selected>Select an urgency</option>
                                     <option value="emergency">Emergency - Need help now</option>
@@ -139,11 +114,11 @@
                                 </select>
                             </div>
                             <div class="form-group form-full">
-                                <label for="message" class="required-field">Describe Your Plumbing Issue</label>
+                                <label for="message" class="required-field">Describe the problem</label>
                                 <textarea id="message" name="message" required></textarea>
                             </div>
                             <div class="form-group form-full">
-                                <label for="howHeard">How Did You Hear About Us?</label>
+                                <label for="howHeard">How did you hear about us?</label>
                                 <select id="howHeard" name="howHeard">
                                     <option value="" selected>Select an option</option>
                                     <option value="google">Google Search</option>
@@ -154,78 +129,77 @@
                                 </select>
                             </div>
                             <div class="form-group form-full">
-                                <button type="submit" id="submitButton" class="btn" style="width: 100%;">
-                                    <span id="spinner" class="spinner"></span>
-                                    Submit Request
+                                <button type="submit" id="submitButton" class="btn submit-btn">
+                                    <span id="spinner" class="spinner" aria-hidden="true"></span>
+                                    Send request
                                 </button>
+                                <p class="form-note">We pride ourselves on accurate quotes. Final prices are based on the actual work required.</p>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <div class="contact-info">
-                    <div class="contact-info-badge">We pride ourselves on providing accurate quotes. Final prices are based on the actual work required.</div>
-                    <h3>Contact Information</h3>
-                    <div class="contact-info-item">
-                        <i>📞</i>
-                        <div>
-                            <p><strong>Phone</strong></p>
-                            <p>(908) 872-7393</p>
-                        </div>
+                <aside class="contact-aside">
+                    <div class="plate plate-compact" role="group" aria-label="Contact details">
+                        <p class="plate-title">Brass Plumbing Solutions</p>
+                        <p class="plate-subtitle">Plumbing and mechanical contractor</p>
+                        <dl class="plate-specs">
+                            <div class="plate-row">
+                                <dt>Phone</dt>
+                                <dd><a href="tel:+19088727393">(908) 872-7393</a></dd>
+                            </div>
+                            <div class="plate-row">
+                                <dt>Email</dt>
+                                <dd><a href="mailto:brassplumbingsolutions@gmail.com">brassplumbingsolutions@gmail.com</a></dd>
+                            </div>
+                            <div class="plate-row">
+                                <dt>Business hours</dt>
+                                <dd>Monday to Friday, 9 AM to 5 PM</dd>
+                            </div>
+                            <div class="plate-row">
+                                <dt>Weekends</dt>
+                                <dd>Emergency service only</dd>
+                            </div>
+                        </dl>
+                        <p class="plate-emergency">
+                            <span>Emergency line, 24/7</span>
+                            <a href="tel:+19088727393">(908) 872-7393</a>
+                        </p>
                     </div>
-                    <div class="contact-info-item">
-                        <i>✉️</i>
-                        <div>
-                            <p><strong>Email</strong></p>
-                            <p>brassplumbingsolutions@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i>⏰</i>
-                        <div>
-                            <p><strong>Business Hours</strong></p>
-                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                            <p>Saturday - Sunday: Closed (Emergency Services Only)</p>
-                        </div>
-                    </div>
-                    <div style="margin-top: 30px;">
-                        <h3>Emergency Service</h3>
-                        <p>For after-hours emergency service, please call our main number.</p>
-                    </div>
-                </div>
+                    <p class="aside-note"><strong>After hours?</strong> For emergency service outside business hours, call the main number. Don't wait on the form.</p>
+                </aside>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer on-dark">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-widget">
-                    <h3>Contact Us</h3>
-                    <div class="footer-contact-info">
-                        <div>
-                            <i>📞</i>
-                            <p>(908) 872-7393</p>
-                        </div>
-                        <div>
-                            <i>✉️</i>
-                            <p>brassplumbingsolutions@gmail.com</p>
-                        </div>
+            <div class="footer-grid">
+                <div>
+                    <h2>Rather talk it through?</h2>
+                    <p>Call and describe the job. We'll tell you what it likely involves and when we can get there.</p>
+                    <div class="hero-actions">
+                        <a class="btn" href="tel:+19088727393">Call (908) 872-7393</a>
                     </div>
                 </div>
-                <div class="footer-widget">
-                    <h3>Business Hours</h3>
-                    <ul class="footer-links">
-                        <li>Monday - Friday: 9:00 AM - 5:00 PM</li>
-                        <li>Saturday - Sunday: Closed (Emergency Services Only)</li>
+                <div>
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="tel:+19088727393">(908) 872-7393</a></li>
+                        <li><a href="mailto:brassplumbingsolutions@gmail.com">brassplumbingsolutions@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Business hours</h3>
+                    <ul>
+                        <li>Monday to Friday, 9 AM to 5 PM</li>
+                        <li>Weekends: emergency service only</li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; Brass Plumbing Solutions LLC. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; Brass Plumbing Solutions LLC. All rights reserved.</p>
+                <p>Serving New Jersey since 2013</p>
             </div>
         </div>
     </footer>
@@ -364,29 +338,15 @@
             });
 
             const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const headerContent = document.querySelector('.header-content');
-            const navLinks = document.querySelectorAll('.nav-menu a');
-
             const header = document.querySelector('.main-header');
+
             if (menuToggle && header) {
                 menuToggle.addEventListener('click', function () {
-                    header.classList.toggle('nav-open');
+                    const open = !header.classList.contains('nav-open');
+                    header.classList.toggle('nav-open', open);
+                    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
                 });
             }
-
-            navLinks.forEach(function (link) {
-                link.addEventListener('click', function () {
-                    const wasActive = link.classList.contains('active');
-                    navLinks.forEach(function (otherLink) {
-                        otherLink.classList.remove('active');
-                    });
-                    link.classList.add('active');
-
-                    if (!wasActive) {
-                        header.classList.remove('nav-open');
-                    }
-                });
-            });
         });
     </script>
 </body>
